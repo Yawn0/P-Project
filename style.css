@@ -6,7 +6,7 @@
     --background: #1A2B34;
     --gray: #334651;
     --unit: 10px;
-    --container-width: 500px;
+    --container-width: 650px;
 }
 
 body{
@@ -22,4 +22,32 @@ body{
     flex-direction: column;
     gap: var(--unit);
     overflow: hidden;
+}
+
+.container:hover{
+    cursor:pointer;
+}
+
+.row{
+    height: var(--unit);
+    display: flex;
+    justify-content: center;
+    gap: var(--unit);
+    translate: var(--offset);
+} 
+
+:not(.duplicate) > .row{
+    animation: load-row 1s calc(var(--delay) * 100ms) forwards;
+}
+
+.container.no-load:not(.slide) .row{
+    animation: none;
+    translate: 0;
+}
+
+.cell{
+    height: 100%;
+    width: calc(var(--size, 2) * var(--unit));
+    background-color: var(--gray);
+    border-radius: 100px;
 }
